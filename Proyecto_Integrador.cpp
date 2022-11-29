@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 #include "Clases/Producto.cpp"
-#include "Clases/Cliente.h"
-#include "Clases/Tienda.h"
+#include "Clases/Cliente.cpp"
+#include "Clases/Tienda.cpp"
 using namespace std;
 
 int main(){
