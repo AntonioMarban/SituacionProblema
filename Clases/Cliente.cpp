@@ -1,9 +1,5 @@
 // Diego Sahid García Galván and Antonio Marban Regalado
 // Started on 28/11/2022
-// Waaaaaaaaaaaaaaaaaaaa
-// Tercer commit
-//waaa
-// Esto es un test
 
 #pragma once
 #include <iostream>
