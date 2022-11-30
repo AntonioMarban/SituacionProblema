@@ -42,4 +42,5 @@ class Cliente{
         void setCliente(string, string, string, string);
         // ======== Metodo de Impresion
         void imprimirCliente();
+        void imprimirCarrito();
 };

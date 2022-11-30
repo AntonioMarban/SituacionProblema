@@ -101,3 +101,9 @@ void Cliente::imprimirCliente() {
     cout << "La cantidad de productos que lleva es: " << cantidadProductosC << endl;
     cout << "El total de su compra es : " << totalC << endl;
 }
+
+void Cliente::imprimirCarrito() {
+    for (int i = 0; i < cantidadProductosC; i++) {
+        carritoC[i].imprimirProducto();
+    }
+}
