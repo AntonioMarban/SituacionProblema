@@ -99,7 +99,7 @@ void Cliente::imprimirCliente() {
     cout << "Su correo electronico es: " << correoElectronicoC << endl;
     // cout << "Su carrito es: " << carritoC << endl;
     cout << "La cantidad de productos que lleva es: " << cantidadProductosC << endl;
-    cout << "El total de su compra es : " << totalC << endl;
+    cout << "El total de su compra es: " << totalC << endl;
 }
 
 void Cliente::imprimirCarrito() {
