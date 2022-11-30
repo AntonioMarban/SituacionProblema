@@ -135,7 +135,7 @@ void Tienda::agregarElProducto(){
     for (int i; i<cantidadProductosT; cantidadProductosT++){
         cout << "****** Producto " << i+1 << " ********" << endl;
         cout << "Clave de la tienda del producto: ";
-        cin >> claveT;
+        // cin >> claveT;
     }
 }
 
