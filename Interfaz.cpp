@@ -42,7 +42,7 @@ int main(){
         else if (eleccion == 1) { // Agregar productos desde archivo
             cout << "\nIngrese el nombre del archivo que contiene los datos de los productos: " << endl;
             cin >> nombreArchivo;
-            tiendita.ag
+            tiendita.agregarLosProductos(nombreArchivo);
         }
         else if (eleccion == 2) { // Agregar productos uno a uno
 
