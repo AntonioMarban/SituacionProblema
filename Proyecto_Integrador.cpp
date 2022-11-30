@@ -24,6 +24,9 @@ int main(){
     // Pruebas de la clase "Cliente"
 
     Tienda Prueba;
-    Prueba.agregarLosProductos("MiCarrito.txt");
+    // Prueba.agregarLosProductos("MiCarrito.txt");
+    Prueba.agregarCliente();
+    Prueba.imprimirTienda();
+    Prueba.imprimirClientes();
 
 }

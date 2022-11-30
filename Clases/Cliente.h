@@ -15,6 +15,7 @@ class Cliente{
     string nombreC;
     string correoElectronicoC;
     string telefonoC;
+    int cantidadProductosC;
     Producto carritoC[numeroCarrito];
     double totalC;
     public:
@@ -28,6 +29,7 @@ class Cliente{
         string getCorreoElectronicoC();
         string getTelefonoC();
         Producto getCarritoC();
+        int getCantidadProductosC();
         double getTotalC();
         // ======== Metodos Setters
         void setIdentificadorC(string);
@@ -36,6 +38,8 @@ class Cliente{
         void setTelefonoC(string);
         void setCarritoC(Producto);
         void setTotalC(double);
+        void setCantidadProductosC(int);
+        void setCliente(string, string, string, string);
         // ======== Metodo de Impresion
         void imprimirCliente();
 };

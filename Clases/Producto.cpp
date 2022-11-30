@@ -16,12 +16,12 @@ Producto::Producto(){
 }
 
 
-Producto::Producto(string clave, string nombre, int cat, float pre, int cant){
+Producto::Producto(string clave, string nombre, int categoria, float precio, int cantidad){
     claveT = clave;
     nombreP = nombre;
-    categoriaP = cat;
-    precioP = pre;
-    cantidadP = cant;
+    categoriaP = categoria;
+    precioP = precio;
+    cantidadP = cantidad;
 }
 
 Producto::~Producto(){}
@@ -66,12 +66,12 @@ void Producto::setCantidadP(int cantidad){
     cantidadP = cantidad;
 }
 
-void Producto::setProducto(string claveIn, string nombreIn, int catIn, float precioIn, int cantIn){
-    claveT = claveIn;
-    nombreP = claveIn;
-    categoriaP = catIn;
-    precioP = precioIn;
-    cantidadP = cantIn;
+void Producto::setProducto(string clave, string nombre, int categoria, float precio, int cantidad){
+    claveT = clave;
+    nombreP = nombre;
+    categoriaP = categoria;
+    precioP = precio;
+    cantidadP = cantidad;
 }
 
 void Producto::imprimirProducto(){

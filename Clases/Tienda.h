@@ -10,7 +10,7 @@
 using namespace std;
 
 const int PT = 1;
-const int CT = 1;
+const int CT = 10;
 
 class Tienda{
     string identificadorT;
@@ -46,6 +46,7 @@ class Tienda{
         void setIngresoDiarioT(double);
     // Metodo Imprimir
         void imprimirTienda();
+        void imprimirClientes();
     // Metodos para agregar
         void agregarLosProductos(string);
         void agregarElProducto();

@@ -23,6 +23,7 @@ class Producto{
         int getCategoriaP();
         float getPrecioP();
         int getCantidadP();
+        int getCantidadProductosC();
         // ======== Metodos Setters
         void setClaveT(string);
         void setNombreP(string);

@@ -13,6 +13,7 @@ Cliente::Cliente(){
     nombreC = "DF";
     correoElectronicoC = "DF";
     telefonoC = "DF"; 
+    cantidadProductosC = 0;
     totalC = 0;
 }
 
@@ -21,6 +22,7 @@ Cliente::Cliente(string idIN, string nomIN, string corrIN, string telIN){
     nombreC = nomIN;
     correoElectronicoC = corrIN;
     telefonoC = telIN;
+    cantidadProductosC = 0;
     totalC = 0;
 }
 
@@ -50,6 +52,9 @@ double Cliente::getTotalC() {
     return totalC;
 }
 
+int Cliente::getCantidadProductosC() {
+    return cantidadProductosC;
+}
 
 void Cliente::setIdentificadorC(string identificadorC) {
     this ->identificadorC = identificadorC;
@@ -75,11 +80,24 @@ void Cliente::setTotalC(double totalC) {
     this ->totalC = totalC;
 }
 
+void Cliente::setCantidadProductosC(int cantidadProductos) {
+    cantidadProductosC = cantidadProductos;
+}
+
+void Cliente::setCliente(string idIN, string nomIN, string corrIN, string telIN) {
+    identificadorC = idIN;
+    nombreC = nomIN;
+    correoElectronicoC = corrIN;
+    telefonoC = telIN;
+    totalC = 0;
+}
+
 void Cliente::imprimirCliente() {
-    cout << "El identificador del cliente es: " << identificadorC << endl;
+    cout << "\nEl identificador del cliente es: " << identificadorC << endl;
     cout << "Su nombre es: " << nombreC << endl;
     cout << "Su telefono es: " << telefonoC << endl;
     cout << "Su correo electronico es: " << correoElectronicoC << endl;
-    cout << "Su carrito es: " << carritoC << endl;
+    // cout << "Su carrito es: " << carritoC << endl;
+    cout << "La cantidad de productos que lleva es: " << cantidadProductosC << endl;
     cout << "El total de su compra es : " << totalC << endl;
 }
