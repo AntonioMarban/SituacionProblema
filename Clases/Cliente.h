@@ -36,7 +36,7 @@ class Cliente{
         void setNombreC(string);
         void setCorreoElectronicoC(string);
         void setTelefonoC(string);
-        void setCarritoC(Producto);
+        void setCarritoC(Producto, int);
         void setTotalC(double);
         void setCantidadProductosC(int);
         void setCliente(string, string, string, string);

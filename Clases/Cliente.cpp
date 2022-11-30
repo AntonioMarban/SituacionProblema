@@ -72,8 +72,8 @@ void Cliente::setTelefonoC(string telefonoC) {
     this ->telefonoC = telefonoC;
 }
 
-void Cliente::setCarritoC(Producto carritoC) {
-    this ->carritoC[numeroCarrito] = carritoC;
+void Cliente::setCarritoC(Producto carritoC, int indice) {
+    this ->carritoC[indice] = carritoC;
 }
 
 void Cliente::setTotalC(double totalC) {

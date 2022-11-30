@@ -165,31 +165,52 @@ void Tienda::agregarCliente(){
 }
 
 void Tienda::llenarCarrito(){
-    string identificadorC;
-    int categoriaP;
+    string identificadorC, nombreP, respuestaP;
+    int categoriaP, cantidadP;
+    bool opcionP = true;
     cout << "\nPor favor, dame un identificador de cliente: ";
     cin >> identificadorC;
-    for (int i; i<CT; i++){
+    do{
+        for (int i; i<CT; i++){
         if (identificadorC != clientesT[i].getIdentificadorC()){
             cout << "\nLa venta esta solo disponible para clientes registrados, lo invitamos a registrarse para disfrutar de nuestros maravillosos productos." << endl;
         }
         else{
-            cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
-            cin >> categoriaP;
-            if (categoriaP>5 || categoriaP<1){
-                cout << "\nERROR, escoja una categoria valida \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería:" << endl;
-                cout << "\nPor favor deme una categoria valida: ";
+            do{
+                cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
                 cin >> categoriaP;
-                
-            }
+            }while (categoriaP>5 || categoriaP<1);
             for (int c; c<PT; c++){
                 if (categoriaP == productosT[i].getCategoriaP()){
                     productosT[i].imprimirProducto();
                 }
             }
+            cout << "\nPor favor, indiqueme el nombre del producto que desea comprar: ";
+            cin >> nombreP;
+            cout << "\nTambien indiqueme la cantidad que quiere comprar: ";
+            cin >> cantidadP;
+            for (int n; n<PT; n++){
+                if (nombreP == productosT[n].getNombreP()){
+                    for (int a; a<numeroCarrito; a++){
+                        clientesT[i].setCarritoC(productosT[n], a);
+                    }
+                }
+            }
+
         }
         
     }
+    do{
+        cout << "\nQuieres agregar otro producto? [S] [N]: ";
+        cin >> respuestaP;
+    }while(respuestaP != "S" || respuestaP != "N");
+    if (respuestaP == "S"){
+        opcionP = true;
+    }
+    else{
+        opcionP = false;
+    }
+    }while(opcionP == true);
 
 }
 
