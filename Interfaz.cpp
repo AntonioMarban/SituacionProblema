@@ -14,10 +14,8 @@ int main(){
     cin >> identificadorTienda;
     cout << "\nA continuacion ingrese el nombre de la tienda: " << endl;
     cin >> nombreTienda;
-    cout << "\nIngrese la direccion de la tienda: " << endl;
+    cout << "\nPor ultimo, ingrese la direccion de la tienda: " << endl;
     cin >> direccionTienda;
-    cout << "\nPor ultimo, ingrese el nombre del archivo que contendra los datos de los productos." << endl;
-    cin >> nombreArchivo;
 
     Tienda tiendita(identificadorTienda, nombreTienda, direccionTienda); // Genero un objeto tipo Tienda.h con los parametros que ingresó el usuario.
 
@@ -25,6 +23,7 @@ int main(){
 
     int eleccion;
     do {
+        cout << "\n============================================================" << endl;
         cout << "\nPor favor elija una opcion del menu" << endl;
         cout << "\n[1] Agregar productos desde archivo" << endl;
         cout << "[2] Agregar productos uno a uno" << endl;
@@ -32,17 +31,31 @@ int main(){
         cout << "[4] Comprar productos" << endl;
         cout << "[5] Realizar cierre del dia" << endl;
         cout << "[6] Salir\n" << endl;
+        cout << "============================================================\n" << endl;
 
+        cout << ">";
         cin >> eleccion;
-        if (eleccion > 6 || eleccion < 0) {
-            cout << "\nEsa no es una opcion valida." << endl;
+
+        if (eleccion > 5 || eleccion < 0) {
+            cout << "\n<< Esa no es una opcion valida. >>" << endl;
         }
-        else if (eleccion == 1) {
-            // Agregar productos desde archivo
+        else if (eleccion == 1) { // Agregar productos desde archivo
+            cout << "\nIngrese el nombre del archivo que contiene los datos de los productos: " << endl;
+            cin >> nombreArchivo;
+            tiendita.agregarLosProductos(nombreArchivo);
         }
-        else if (eleccion == 2) {
+        else if (eleccion == 2) { // Agregar productos uno a uno
+
+        }
+        else if (eleccion == 3) { // Agregar clientes
+            tiendita.agregarCliente();
+        }
+        else if (eleccion == 4) { // Comprar productos
+            
+        }
+        else if (eleccion == 5) { // Realizar cierre del dia
 
         }
     }
-    while(eleccion > 6 || eleccion < 0);    
+    while(eleccion != 6);    
 }
