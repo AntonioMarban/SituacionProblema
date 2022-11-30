@@ -1,7 +1,6 @@
 // Diego Sahid García Galván and Antonio Marban Regalado
 // Started on 28/11/2022
 
-#pragma once
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -134,8 +133,20 @@ void Tienda::agregarElProducto(){
     cin >> cantidadProductosT;
     for (int i; i<cantidadProductosT; cantidadProductosT++){
         cout << "****** Producto " << i+1 << " ********" << endl;
-        cout << "Clave de la tienda del producto: ";
-        // cin >> claveT;
+        string claveTIn, nombrePIn;
+        int categoriaPIn, cantidadPIn;
+        float precioPIn;
+        cout << "\nClave de la tienda del producto: ";
+        cin >> claveTIn;
+        cout << "\nNombre del producto: ";
+        cin >> nombrePIn;
+        cout <<  "\nCategoria del producto: ";
+        cin >> categoriaPIn;
+        cout << "\nPrecio del producto: ";
+        cin >> precioPIn;
+        cout << "\nCantidad a comprar: ";
+        cin >> cantidadPIn;
+        productosT[i].setProducto(claveTIn, nombrePIn, categoriaPIn, precioPIn, cantidadPIn);
     }
 }
 
@@ -154,6 +165,31 @@ void Tienda::agregarCliente(){
 }
 
 void Tienda::llenarCarrito(){
+    string identificadorC;
+    int categoriaP;
+    cout << "\nPor favor, dame un identificador de cliente: ";
+    cin >> identificadorC;
+    for (int i; i<CT; i++){
+        if (identificadorC != clientesT[i].getIdentificadorC()){
+            cout << "\nLa venta esta solo disponible para clientes registrados, lo invitamos a registrarse para disfrutar de nuestros maravillosos productos." << endl;
+        }
+        else{
+            cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
+            cin >> categoriaP;
+            if (categoriaP>5 || categoriaP<1){
+                cout << "\nERROR, escoja una categoria valida \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería:" << endl;
+                cout << "\nPor favor deme una categoria valida: ";
+                cin >> categoriaP;
+                
+            }
+            for (int c; c<PT; c++){
+                if (categoriaP == productosT[i].getCategoriaP()){
+                    productosT[i].imprimirProducto();
+                }
+            }
+        }
+        
+    }
 
 }
 

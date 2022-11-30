@@ -79,6 +79,4 @@ void Producto::imprimirProducto(){
     cout << "El nombre es:" << nombreP << endl;
     cout << "La categoria es: " << categoriaP << endl;
     cout << "El precio es: " << precioP << endl;
-    cout << "La cantidad es: " << cantidadP << endl;
-    cout << "=================================================================" << endl;
 }
