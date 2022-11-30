@@ -9,6 +9,13 @@
 using namespace std;
 
 int main(){
+    // Tienda T1;
+    // Cliente Diego;
+    // // Diego.setIdentificadorC("0");
+    // // T1.setClientesT(Diego, 0);
+    // T1.agregarLosProductos("MiCarrito.txt");
+    // T1.agregarCliente();
+    // T1.llenarCarrito();
     string identificadorTienda, nombreTienda, direccionTienda, nombreArchivo;
     cout << "\nBienvenido! Por favor ingrese el identificador de la tienda: " << endl;
     cin >> identificadorTienda;

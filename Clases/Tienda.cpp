@@ -85,8 +85,8 @@ void Tienda::setProductosT(Producto prod){
     productosT[PT] = prod;
 }
 
-void Tienda::setClientesT(Cliente cli){
-    clientesT[CT] = cli;
+void Tienda::setClientesT(Cliente cli, int indice){
+    clientesT[indice] = cli;
 }
 
 void Tienda::setIngresoDiarioT(double ingIn){
@@ -167,57 +167,82 @@ void Tienda::agregarCliente(){
 }
 
 void Tienda::llenarCarrito(){
-    string identificadorC, nombreP, respuestaP;
-    int categoriaP, cantidadP;
+    string identificadorC, nombreP;
+    char respuestaP;
+    int categoriaP, cantidadCompra;
     bool opcionP = true;
-    cout << "\nPor favor, dame un identificador de cliente: ";
-    cin >> identificadorC;
+    int indiceCliente;
     do{
-        for (int i; i<CT; i++){
-        if (identificadorC != clientesT[i].getIdentificadorC()){
+        bool hayCliente = false;
+        cout << "\nPor favor, dame un identificador de cliente: ";
+        cin >> identificadorC;
+        int i = 0;
+        do {
+            if (identificadorC == clientesT[i].getIdentificadorC()) { // Cuando el cliente no este en la lista le pido que se registre
+                hayCliente = true;
+                indiceCliente = i;
+            }
+            i++;
+        } while (hayCliente == false && i < cantidadClientesT);
+        
+        if (!hayCliente) { // Cuando el cliente no este en la lista le pido que se registre
             cout << "\nLa venta esta solo disponible para clientes registrados, lo invitamos a registrarse para disfrutar de nuestros maravillosos productos." << endl;
-        }
-        else{
+        }else{
+            cout << "Entro al else" << endl;
             do{
                 cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
                 cin >> categoriaP;
-            }while (categoriaP>5 || categoriaP<1);
+            }while (categoriaP>5 || categoriaP<1); // Me aseguro que escoja categoria valida
             for (int c; c<PT; c++){
-                if (categoriaP == productosT[i].getCategoriaP()){
-                    productosT[i].imprimirProducto();
+                if (categoriaP == productosT[c].getCategoriaP()){ // Cuando coincide con la categoria, lo imprimo
+                    productosT[c].imprimirProducto();
                 }
             }
             cout << "\nPor favor, indiqueme el nombre del producto que desea comprar: ";
             cin >> nombreP;
             cout << "\nTambien indiqueme la cantidad que quiere comprar: ";
-            cin >> cantidadP;
-            for (int n; n<PT; n++){
-                if (nombreP == productosT[n].getNombreP()){
-                    for (int a; a<numeroCarrito; a++){
-                        clientesT[i].setCarritoC(productosT[n], a);
-                    }
+            cin >> cantidadCompra;
+            for (int n = 0; n<PT; n++){ // Me reviso que el nombre introducido este en la lista
+                if (nombreP == productosT[n].getNombreP()){ // Cuando coincide le añado a su carrito ese producto
+                    clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC()); // Se lo añado en el indice a
+                    clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
+                    cout << "Indice: " << indiceCliente << endl;
+                    clientesT[indiceCliente].imprimirCarrito();
+                    cout << clientesT[indiceCliente].getTotalC() << endl;
+
+
+                    // for (int a = 0; a<numeroCarrito; a++){ // El indice a es para recorrer todo el carrito
+                    //     clientesT[indiceCliente].setCarritoC(productosT[n], a); // Se lo añado en el indice a
+                    //     clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
+                    //     cout << "Indice: " << indiceCliente << endl;
+                    //     clientesT[indiceCliente].imprimirCarrito();
+                    //     cout << clientesT[indiceCliente].getTotalC() << endl;
+                    // }
+                    break;
                 }
             }
 
         }
+    
         
-    }
-    do{
-        cout << "\nQuieres agregar otro producto? [S] [N]: ";
-        cin >> respuestaP;
-    }while(respuestaP != "S" || respuestaP != "N");
-    if (respuestaP == "S"){
-        opcionP = true;
-    }
-    else{
-        opcionP = false;
-    }
-    }while(opcionP == true);
-
+        cout << "No entre a nada" << endl;
+        do{
+            cout << "\nQuieres agregar otro producto? [S] [N]: ";
+            cin >> respuestaP;
+        } while(respuestaP != 'S' && respuestaP != 'N'); // Para que solo pueda elegir entre "S" o "N"
+        if (respuestaP == 'S'){
+            opcionP = true;
+        }
+        else{
+            opcionP = false;
+        }
+    }while(opcionP == true); // Para que el usuario continue comprando o pare
+    imprimirTicketCompra(indiceCliente);
 }
 
-void Tienda::imprimirTicketCompra(){
-    cout << 
+void Tienda::imprimirTicketCompra(int indice){
+    cout << "\nTu ticket es: " << endl;
+    clientesT[indice].imprimirCliente();
 }
 
 void Tienda::cerrarOperaciones(){

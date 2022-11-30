@@ -42,7 +42,7 @@ class Tienda{
         void setCantidadProductosT(int);
         void setCantidadClientesT(int);
         void setProductosT(Producto);
-        void setClientesT(Cliente);
+        void setClientesT(Cliente, int);
         void setIngresoDiarioT(double);
     // Metodo Imprimir
         void imprimirTienda();
@@ -52,6 +52,6 @@ class Tienda{
         void agregarElProducto();
         void agregarCliente();
         void llenarCarrito();
-        void imprimirTicketCompra();
+        void imprimirTicketCompra(int);
         void cerrarOperaciones();
 };
