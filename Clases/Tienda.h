@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "Producto.h"
 #include "Cliente.cpp"
 #include "Producto.cpp"
 using namespace std;

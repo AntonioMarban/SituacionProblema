@@ -134,8 +134,20 @@ void Tienda::agregarElProducto(){
     cin >> cantidadProductosT;
     for (int i; i<cantidadProductosT; cantidadProductosT++){
         cout << "****** Producto " << i+1 << " ********" << endl;
-        cout << "Clave de la tienda del producto: ";
-        cin >> claveT;
+        string claveTIn, nombrePIn;
+        int categoriaPIn, cantidadPIn;
+        float precioPIn;
+        cout << "\nClave de la tienda del producto: ";
+        cin >> claveTIn;
+        cout << "\nNombre del producto: ";
+        cin >> nombrePIn;
+        cout <<  "\nCategoria del producto: ";
+        cin >> categoriaPIn;
+        cout << "\nPrecio del producto: ";
+        cin >> precioPIn;
+        cout << "\nCantidad a comprar: ";
+        cin >> cantidadPIn;
+        productosT[i].setProducto(claveTIn, nombrePIn, categoriaPIn, precioPIn, cantidadPIn);
     }
 }
 
