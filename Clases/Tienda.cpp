@@ -108,7 +108,6 @@ void Tienda::imprimirClientes() {
     }
 }
 
-<<<<<<< HEAD
 // void Tienda::agregarLosProductos(string nombreArchivo){
 //     ifstream miArchivo; // objeto de tipo archivos de entrada
 //     miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
@@ -130,25 +129,15 @@ void Tienda::imprimirClientes() {
 //     }
 // }
 
-// void Tienda::agregarElProducto(){
-//     cout << "Cuantos productos vas a agregar?" << endl;
-//     cin >> cantidadProductosT;
-//     for (int i; i<cantidadProductosT; cantidadProductosT++){
-//         cout << "****** Producto " << i << " ********" << endl;
-//         // Pendiente de terminar, llenado de productos uno a uno.
-//     }
-// }
-=======
 void Tienda::agregarElProducto(){
     cout << "Cuantos productos vas a agregar?" << endl;
     cin >> cantidadProductosT;
     for (int i; i<cantidadProductosT; cantidadProductosT++){
         cout << "****** Producto " << i+1 << " ********" << endl;
-        // Pendiente de terminar, llenado de productos uno a uno.
-        
+        cout << "Clave de la tienda del producto: ";
+        cin >> claveT;
     }
 }
->>>>>>> ffc1714c88d4222d63f8c1c94408bdc5feae492e
 
 void Tienda::agregarCliente(){
     string identificador, nombre, correoElectronico, telefono;
