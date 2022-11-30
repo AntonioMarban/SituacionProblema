@@ -119,8 +119,9 @@ void Tienda::agregarElProducto(){
     cout << "Cuantos productos vas a agregar?" << endl;
     cin >> cantidadProductosT;
     for (int i; i<cantidadProductosT; cantidadProductosT++){
-        cout << "****** Producto " << i << " ********" << endl;
+        cout << "****** Producto " << i+1 << " ********" << endl;
         // Pendiente de terminar, llenado de productos uno a uno.
+        
     }
 }
 
