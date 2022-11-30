@@ -108,47 +108,35 @@ void Tienda::imprimirClientes() {
     }
 }
 
-<<<<<<< HEAD
-// void Tienda::agregarLosProductos(string nombreArchivo){
-//     ifstream miArchivo; // objeto de tipo archivos de entrada
-//     miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
-//     // el archivo cuyo nombre llega como parametro, se abre para lectura
-//     if (!miArchivo) // si el archivo no se encuentra, marcara error 
-//         cout<<"\nEl archivo no existe\n";
-//     else{
-//         cout<<"\nLleno el arreglo con los datos del archivo de texto\n";
-//         string clave, nombre;
-//         int categoria, cantidad, i = 0;
-//         float precio;
-//         while (!miArchivo.eof() && i < PT){ // cuido no llegar al fin del archivo 
-//         // y no rebasar el tamanio de mi arreglo
-//             miArchivo >> clave >> nombre >> categoria, precio, cantidad; // obtengo los valores del archivo y 
-//             // los paso a mis variables previamente definidas con el tipo requerido
-//             cout << clave << " " << nombre << " " << categoria << " " << precio << " " << cantidad << endl;
-//             productosT[i++].setProducto(clave, nombre, categoria, precio, cantidad); // actualizo el iesimo registro de personas
-//         }
-//     }
-// }
+void Tienda::agregarLosProductos(string nombreArchivo){
+    ifstream miArchivo; // objeto de tipo archivos de entrada
+    miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
+    // el archivo cuyo nombre llega como parametro, se abre para lectura
+    if (!miArchivo) // si el archivo no se encuentra, marcara error 
+        cout<<"\nEl archivo no existe\n";
+    else{
+        cout<<"\nLleno el arreglo con los datos del archivo de texto\n";
+        string clave, nombre;
+        int categoria, cantidad, i = 0;
+        float precio;
+        while (!miArchivo.eof() && i < PT){ // cuido no llegar al fin del archivo 
+        // y no rebasar el tamanio de mi arreglo
+            miArchivo >> clave >> nombre >> categoria, precio, cantidad; // obtengo los valores del archivo y 
+            // los paso a mis variables previamente definidas con el tipo requerido
+            cout << clave << " " << nombre << " " << categoria << " " << precio << " " << cantidad << endl;
+            productosT[i++].setProducto(clave, nombre, categoria, precio, cantidad); // actualizo el iesimo registro de personas
+        }
+    }
+}
 
-// void Tienda::agregarElProducto(){
-//     cout << "Cuantos productos vas a agregar?" << endl;
-//     cin >> cantidadProductosT;
-//     for (int i; i<cantidadProductosT; cantidadProductosT++){
-//         cout << "****** Producto " << i << " ********" << endl;
-//         // Pendiente de terminar, llenado de productos uno a uno.
-//     }
-// }
-=======
 void Tienda::agregarElProducto(){
     cout << "Cuantos productos vas a agregar?" << endl;
     cin >> cantidadProductosT;
     for (int i; i<cantidadProductosT; cantidadProductosT++){
-        cout << "****** Producto " << i+1 << " ********" << endl;
+        cout << "****** Producto " << i << " ********" << endl;
         // Pendiente de terminar, llenado de productos uno a uno.
-        
     }
 }
->>>>>>> ffc1714c88d4222d63f8c1c94408bdc5feae492e
 
 void Tienda::agregarCliente(){
     string identificador, nombre, correoElectronico, telefono;
