@@ -43,4 +43,5 @@ class Cliente{
         // ======== Metodo de Impresion
         void imprimirCliente();
         void imprimirCarrito();
+        void limpiarCarrito();
 };

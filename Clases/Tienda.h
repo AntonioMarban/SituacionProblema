@@ -9,7 +9,7 @@
 #include "Producto.cpp"
 using namespace std;
 
-const int PT = 1;
+const int PT = 10;
 const int CT = 10;
 
 class Tienda{
@@ -47,6 +47,7 @@ class Tienda{
     // Metodo Imprimir
         void imprimirTienda();
         void imprimirClientes();
+        void imprimirProductos();
     // Metodos para agregar
         void agregarLosProductos(string);
         void agregarElProducto();

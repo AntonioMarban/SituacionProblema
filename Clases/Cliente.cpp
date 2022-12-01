@@ -108,3 +108,12 @@ void Cliente::imprimirCarrito() {
         carritoC[i].imprimirProducto();
     }
 }
+
+void Cliente::limpiarCarrito(){
+    for (int i = 0; i<cantidadProductosC; i++){
+        carritoC[i].setCantidadP(0);
+        carritoC[i].setCategoriaP(0);
+        carritoC[i].setClaveT(0);
+        carritoC[i].setPrecioP(0);
+    }
+}

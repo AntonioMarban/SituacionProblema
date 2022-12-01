@@ -188,7 +188,6 @@ void Tienda::llenarCarrito(){
         if (!hayCliente) { // Cuando el cliente no este en la lista le pido que se registre
             cout << "\nLa venta esta solo disponible para clientes registrados, lo invitamos a registrarse para disfrutar de nuestros maravillosos productos." << endl;
         }else{
-            cout << "Entro al else" << endl;
             do{
                 cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
                 cin >> categoriaP;
@@ -227,6 +226,7 @@ void Tienda::llenarCarrito(){
         }
     }while(opcionP == true); // Para que el usuario continue comprando o pare
     imprimirTicketCompra(indiceCliente); // Finalmente imprimo con el metodo de impresion de ticket
+    clientesT[indiceCliente].limpiarCarrito(); // Limpio su carrito para que después haga más compras
 }
 
 void Tienda::imprimirTicketCompra(int indice){
@@ -236,4 +236,10 @@ void Tienda::imprimirTicketCompra(int indice){
 
 void Tienda::cerrarOperaciones(){
     cout << "\nEl ingreso total de la tienda el dia de hoy son: " << ingresoDiarioT << " pesos" << endl;
+}
+
+void Tienda::imprimirProductos(){
+    for (int i = 0; i<PT; i++){
+        productosT[i].imprimirProducto();
+    }
 }

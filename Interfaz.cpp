@@ -29,6 +29,7 @@ int main(){
     cout << "\n\nBienvenido a la tienda virtual de \"" << tiendita.getNombreT() << "\"" << endl;
 
     int eleccion;
+    bool hayArchivo = true;
     do {
         cout << "\n============================================================" << endl;
         cout << "\nPor favor elija una opcion del menu" << endl;
@@ -46,23 +47,28 @@ int main(){
         if (eleccion > 5 || eleccion < 0) {
             cout << "\n<< Esa no es una opcion valida. >>" << endl;
         }
-        else if (eleccion == 1) { // Agregar productos desde archivo
+        else if (eleccion == 1 && hayArchivo) { // Agregar productos desde archivo
             cout << "\nIngrese el nombre del archivo que contiene los datos de los productos: " << endl;
             cin >> nombreArchivo;
             tiendita.agregarLosProductos(nombreArchivo);
+            hayArchivo = false;
+            
+        }
+        else if (eleccion == 1 && hayArchivo == false){
+            cout << "\nYa no puedes añadir productos desde un archivo, ya lo hiciste" << endl;
         }
         else if (eleccion == 2) { // Agregar productos uno a uno
-
+            cout << "\nAgreguemos los productos juntos: " << endl;
+            tiendita.agregarElProducto();
         }
         else if (eleccion == 3) { // Agregar clientes
             tiendita.agregarCliente();
         }
         else if (eleccion == 4) { // Comprar productos
-            
+            tiendita.llenarCarrito();
         }
         else if (eleccion == 5) { // Realizar cierre del dia
-
+            tiendita.cerrarOperaciones();
         }
-    }
-    while(eleccion != 6);    
+    }while(eleccion != 6);
 }
