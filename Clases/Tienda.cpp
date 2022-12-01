@@ -170,7 +170,7 @@ void Tienda::llenarCarrito(){
     string identificadorC, nombreP;
     char respuestaP;
     int categoriaP, cantidadCompra;
-    bool opcionP = true;
+    bool opcionP = true, registroCliente = true;
     int indiceCliente;
     do{
         bool hayCliente = false;
@@ -187,6 +187,7 @@ void Tienda::llenarCarrito(){
         
         if (!hayCliente) { // Cuando el cliente no este en la lista le pido que se registre
             cout << "\nLa venta esta solo disponible para clientes registrados, lo invitamos a registrarse para disfrutar de nuestros maravillosos productos." << endl;
+            registroCliente = false;
         }else{
             do{
                 cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
@@ -212,12 +213,16 @@ void Tienda::llenarCarrito(){
                     break;
                 }
             }
-
-        }        
+        }
+        if (registroCliente){
         do{
             cout << "\nQuieres agregar otro producto? [S] [N]: ";
             cin >> respuestaP;
-        } while(respuestaP != 'S' && respuestaP != 'N'); // Para que solo pueda elegir entre "S" o "N"
+        }while(respuestaP != 'S' && respuestaP != 'N'); // Para que solo pueda elegir entre "S" o "N"
+        }
+        else{
+            cout << "\nNo hay cliente registrado con ese identificador" << endl;
+        }
         if (respuestaP == 'S'){
             opcionP = true;
         }
@@ -225,8 +230,10 @@ void Tienda::llenarCarrito(){
             opcionP = false;
         }
     }while(opcionP == true); // Para que el usuario continue comprando o pare
+    if (registroCliente){
     imprimirTicketCompra(indiceCliente); // Finalmente imprimo con el metodo de impresion de ticket
     clientesT[indiceCliente].limpiarCarrito(); // Limpio su carrito para que después haga más compras
+    }
 }
 
 void Tienda::imprimirTicketCompra(int indice){
