@@ -202,9 +202,9 @@ void Tienda::llenarCarrito(){
             cin >> nombreP;
             cout << "\nTambien indiqueme la cantidad que quiere comprar: ";
             cin >> cantidadCompra;
-            for (int n = 0; n<PT; n++){ // Me reviso que el nombre introducido este en la lista
+            for (int n = 0; n<PT; n++){ // Me aseguro que el nombre introducido este en la lista
                 if (nombreP == productosT[n].getNombreP()){ // Cuando coincide le añado a su carrito ese producto
-                    clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC()); // Se lo añado en el indice a
+                    clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC()); // Se lo añado en el indice que sea igual a la cantidad de productos
                     clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
                     ingresoDiarioT += clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra;
                     cout << "Cliente con identificador: " << indiceCliente << endl;
@@ -214,10 +214,7 @@ void Tienda::llenarCarrito(){
                 }
             }
 
-        }
-    
-        
-        cout << "No entre a nada" << endl;
+        }        
         do{
             cout << "\nQuieres agregar otro producto? [S] [N]: ";
             cin >> respuestaP;
@@ -229,12 +226,12 @@ void Tienda::llenarCarrito(){
             opcionP = false;
         }
     }while(opcionP == true); // Para que el usuario continue comprando o pare
-    imprimirTicketCompra(indiceCliente);
+    imprimirTicketCompra(indiceCliente); // Finalmente imprimo con el metodo de impresion de ticket
 }
 
 void Tienda::imprimirTicketCompra(int indice){
     cout << "\nTu ticket es: " << endl;
-    clientesT[indice].imprimirCliente();
+    clientesT[indice].imprimirCliente(); // Imprimo el cliente en el indice que me sea indicado por llenarCarrito
 }
 
 void Tienda::cerrarOperaciones(){
