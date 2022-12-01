@@ -206,7 +206,8 @@ void Tienda::llenarCarrito(){
                 if (nombreP == productosT[n].getNombreP()){ // Cuando coincide le añado a su carrito ese producto
                     clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC()); // Se lo añado en el indice a
                     clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
-                    cout << "Indice: " << indiceCliente << endl;
+                    ingresoDiarioT += clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra;
+                    cout << "Cliente con identificador: " << indiceCliente << endl;
                     clientesT[indiceCliente].imprimirCarrito();
                     cout << clientesT[indiceCliente].getTotalC() << endl;
                     break;
@@ -237,5 +238,5 @@ void Tienda::imprimirTicketCompra(int indice){
 }
 
 void Tienda::cerrarOperaciones(){
-
+    cout << "\nEl ingreso total de la tienda el dia de hoy son: " << ingresoDiarioT << " pesos" << endl;
 }
