@@ -209,15 +209,6 @@ void Tienda::llenarCarrito(){
                     cout << "Indice: " << indiceCliente << endl;
                     clientesT[indiceCliente].imprimirCarrito();
                     cout << clientesT[indiceCliente].getTotalC() << endl;
-
-
-                    // for (int a = 0; a<numeroCarrito; a++){ // El indice a es para recorrer todo el carrito
-                    //     clientesT[indiceCliente].setCarritoC(productosT[n], a); // Se lo añado en el indice a
-                    //     clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
-                    //     cout << "Indice: " << indiceCliente << endl;
-                    //     clientesT[indiceCliente].imprimirCarrito();
-                    //     cout << clientesT[indiceCliente].getTotalC() << endl;
-                    // }
                     break;
                 }
             }
