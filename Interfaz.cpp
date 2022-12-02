@@ -33,7 +33,7 @@ int main(){
 
     int eleccion;
     bool hayArchivo = true;
-    do {
+    do { // Repetir el menu hasta que escoja la opcion de salir
         cout << "\n============================================================" << endl;
         cout << "\nPor favor elija una opcion del menu" << endl;
         cout << "\n[1] Agregar productos desde archivo" << endl;

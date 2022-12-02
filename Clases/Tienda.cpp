@@ -9,7 +9,7 @@
 #include "Producto.cpp"
 using namespace std;
 
-Tienda::Tienda(){
+Tienda::Tienda(){ // Constructor por omision de la clase Tienda
     identificadorT = "DF";
     nombreT = "DF";
     direccionT = "DF";
@@ -18,7 +18,7 @@ Tienda::Tienda(){
     ingresoDiarioT = 0;
 }
 
-Tienda::Tienda(string idIn, string nomIn, string dirIn){
+Tienda::Tienda(string idIn, string nomIn, string dirIn){ // Constructor con valores determinados por el usuario o aplicacion
     identificadorT = idIn;
     nombreT = nomIn;
     direccionT = dirIn;
@@ -27,73 +27,73 @@ Tienda::Tienda(string idIn, string nomIn, string dirIn){
     ingresoDiarioT = 0;
 }
 
-Tienda::~Tienda(){}
+Tienda::~Tienda(){} // Destructor de la clase
 
-string Tienda::getIdentificadorT(){
+string Tienda::getIdentificadorT(){ // Este metodo obtiene el identificador de la tienda
     return identificadorT;
 }
 
-string Tienda::getNombreT(){
+string Tienda::getNombreT(){ // Este metodo obtiene el nombre de la tienda
     return nombreT;
 }
 
-string Tienda::getDireccionT(){
+string Tienda::getDireccionT(){ // Este metodo obtiene la direccion de la tienda
     return direccionT;
 }
 
-int Tienda::getCantidadProductosT(){
+int Tienda::getCantidadProductosT(){ // Este metodo obtiene la cantidad de la tienda
     return cantidadProductosT;
 }
 
-int Tienda::getCandidadClientesT(){
+int Tienda::getCandidadClientesT(){ // Este metodo obtiene la cantidad de clientes de la tienda
     return cantidadClientesT;
 }
 
-Producto Tienda::getProductosT(){
+Producto Tienda::getProductosT(){ // Este metodo obtiene la lista de los productos de la tienda
     return productosT[PT];
 }
 
-Cliente Tienda::getClientesT(){
+Cliente Tienda::getClientesT(){ // Este metodo obtiene la lista de los clientes de la tienda
     return clientesT[CT];
 }
 
-double Tienda::getIngresoDiarioT(){
+double Tienda::getIngresoDiarioT(){ // Este metodo obtiene el ingreso del día de la tienda
     return ingresoDiarioT;
 }
 
-void Tienda::setIdentificadorT(string idIn){
+void Tienda::setIdentificadorT(string idIn){ // Este metodo establece el identificador de la tienda en un valor que es introducido
     identificadorT = idIn;
 }
 
-void Tienda::setNombreT(string nomIn){
+void Tienda::setNombreT(string nomIn){ // Este metodo establece el nombre de la tienda en un valor que es introducido
     nombreT = nomIn;
 }
 
-void Tienda::setDireccionT(string dirIn){
+void Tienda::setDireccionT(string dirIn){ // Este metodo establece la direccion de la tienda en un valor que es introducido
     direccionT = dirIn;
 }
 
-void Tienda::setCantidadProductosT(int cantProd){
+void Tienda::setCantidadProductosT(int cantProd){ // Este metodo establece la cantidad de productos de la tienda en un valor que es introducido
     cantidadClientesT = cantProd;
 }
 
-void Tienda::setCantidadClientesT(int cantCli){
+void Tienda::setCantidadClientesT(int cantCli){ // Este metodo establece la cantidad de clientes de la tienda en un valor que es introducido
     cantidadClientesT = cantCli;
 }
 
-void Tienda::setProductosT(Producto prod){
+void Tienda::setProductosT(Producto prod){ // Este metodo establece el arreglo de los productos de la tienda en un valor que es introducido
     productosT[PT] = prod;
 }
 
-void Tienda::setClientesT(Cliente cli, int indice){
+void Tienda::setClientesT(Cliente cli, int indice){ // Este metodo establece el arreglo de clientes de la tienda en un valor que es introducido
     clientesT[indice] = cli;
 }
 
-void Tienda::setIngresoDiarioT(double ingIn){
+void Tienda::setIngresoDiarioT(double ingIn){ // Este metodo establece el ingreso del dia de la tienda en un valor que es introducido
     ingresoDiarioT = ingIn;
 }
 
-void Tienda::imprimirTienda() {
+void Tienda::imprimirTienda() { // Este metodo imprime todos los atributos de la clase tienda
     cout << "\nSu identificador es: " << identificadorT << endl;
     cout << "Su nombre es: " << nombreT << endl;
     cout << "Su direccion es: " << direccionT << endl;
@@ -101,13 +101,13 @@ void Tienda::imprimirTienda() {
     cout << "La tienda tiene " << cantidadClientesT << " clientes"<< endl;
 }
 
-void Tienda::imprimirClientes() {
+void Tienda::imprimirClientes() { // Este metodo imprime todos los atributos de los clientes de la tienda
     for (int i = 0; i < cantidadClientesT; i++) {
         clientesT[i].imprimirCliente();
     }
 }
 
-void Tienda::agregarLosProductos(string nombreArchivo){
+void Tienda::agregarLosProductos(string nombreArchivo){ // Este metodo agrega los productos desde un archivo de texto a la clase tienda
     ifstream miArchivo; // objeto de tipo archivos de entrada
     miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
     // el archivo cuyo nombre llega como parametro, se abre para lectura
@@ -126,7 +126,7 @@ void Tienda::agregarLosProductos(string nombreArchivo){
     miArchivo.close();
 }
 
-void Tienda::agregarElProducto(){
+void Tienda::agregarElProducto(){ // Este metodo hace que el usuario agregue los productos uno a uno
     int agregados = 0;
     cout << "Cuantos productos vas a agregar?" << endl;
     cin >> agregados;
@@ -150,7 +150,7 @@ void Tienda::agregarElProducto(){
     }
 }
 
-void Tienda::agregarCliente(){
+void Tienda::agregarCliente(){ // Este metodo agrega clientes a la lista de clientes de la tienda
     string identificador = to_string(cantidadClientesT);
     string nombre, correoElectronico, telefono;
     cout << "\nIngrese el nombre del cliente: " << endl;
@@ -166,7 +166,7 @@ void Tienda::agregarCliente(){
     cantidadClientesT += 1;
 }
 
-void Tienda::llenarCarrito(){
+void Tienda::llenarCarrito(){ // Este metodo dependiendo del identificador de un cliente añade productos que quiera comprar a su carrito
     string identificadorC, nombreP;
     char respuestaP;
     int categoriaP, cantidadCompra;
@@ -208,11 +208,11 @@ void Tienda::llenarCarrito(){
             for (int n = 0; n<cantidadProductosT; n++){ // Me aseguro que el nombre introducido este en la lista
                 if (nombreP == productosT[n].getNombreP()){ // Cuando coincide le añado a su carrito ese producto
                     clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC(), cantidadCompra); // Se lo añado en el indice que sea igual a la cantidad de productos
-                    clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
-                    ingresoDiarioT += clientesT[indiceCliente].getTotalC();
+                    clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra); // Al total de su carrito le añado el total de lo que compre
+                    ingresoDiarioT += clientesT[indiceCliente].getTotalC(); // El total de su carrito se lo sumo al ingreso de la tienda
                     cout << "\nCliente con identificador: " << indiceCliente << endl;
-                    clientesT[indiceCliente].imprimirCarrito();
-                    cout << "Su total hasta ahora es: $" << clientesT[indiceCliente].getTotalC() << endl;   
+                    clientesT[indiceCliente].imprimirCarrito(); // Imprimo su carrito para que verifique la compra
+                    cout << "Su total hasta ahora es: $" << clientesT[indiceCliente].getTotalC() << endl; // Imprimo el total de su carrito
                     productoEncontrado = true;
                     break;
                 }
@@ -242,17 +242,17 @@ void Tienda::llenarCarrito(){
     }
 }
 
-void Tienda::imprimirTicketCompra(int indice){
+void Tienda::imprimirTicketCompra(int indice){ // Este metodo imprime el ticket del cliente que hace la compra
     cout << "\n=============== Ticket =============== " << endl;
     clientesT[indice].imprimirCliente(); // Imprimo el cliente en el indice que me sea indicado por llenarCarrito
     cout << "\n====================================== " << endl;
 }
 
-void Tienda::cerrarOperaciones(){
+void Tienda::cerrarOperaciones(){ // Este metodo imprime el ingreso del dia de la tienda
     cout << "\nEl ingreso total de la tienda el dia de hoy son: " << ingresoDiarioT << " pesos" << endl;
 }
 
-void Tienda::imprimirProductos(){
+void Tienda::imprimirProductos(){ // Este metodo imprime todos los atributos de todos los productos de la tienda
     for (int i = 0; i<cantidadProductosT; i++){
         productosT[i].imprimirProducto();
     }
