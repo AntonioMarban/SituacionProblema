@@ -115,10 +115,11 @@ void Cliente::imprimirCarrito() {
 }
 
 void Cliente::limpiarCarrito(){
-    for (int i = 0; i<cantidadProductosC; i++){
-        carritoC[i].setCantidadP(0);
+    for (int i = 0; i<numeroCarrito; i++){
+        carritoC[i].setClaveT("DF");
+        carritoC[i].setNombreP("DF");
         carritoC[i].setCategoriaP(0);
-        carritoC[i].setClaveT(0);
         carritoC[i].setPrecioP(0);
+        carritoC[i].setCantidadP(0);
     }
 }
