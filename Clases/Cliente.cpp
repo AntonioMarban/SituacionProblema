@@ -101,7 +101,7 @@ void Cliente::imprimirCliente() {
     cout << "Su telefono es: " << telefonoC << endl;
     cout << "Su correo electronico es: " << correoElectronicoC << endl;
     cout << "La cantidad de productos que lleva es: " << cantidadProductosC << endl;
-    cout << "El total de su compra es: " << totalC << endl;
+    cout << "El total de su compra es: $" << totalC << endl;
     cout << endl;
 
 }
@@ -121,5 +121,7 @@ void Cliente::limpiarCarrito(){
         carritoC[i].setCategoriaP(0);
         carritoC[i].setPrecioP(0);
         carritoC[i].setCantidadP(0);
+        cantidadProductosC = 0;
+        totalC = 0;
     }
 }

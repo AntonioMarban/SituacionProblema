@@ -111,10 +111,9 @@ void Tienda::agregarLosProductos(string nombreArchivo){
     ifstream miArchivo; // objeto de tipo archivos de entrada
     miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
     // el archivo cuyo nombre llega como parametro, se abre para lectura
-<<<<<<< HEAD
     cout<<"\nLleno el arreglo con los datos del archivo de texto\n";
     string clave, nombre;   
-    int categoria, i = cantidadProductosT;
+    int categoria, i = 0;
     float precio;
     while (!miArchivo.eof()){ // cuido no llegar al fin del archivo 
     // y no rebasar el tamanio de mi arreglo
@@ -122,21 +121,6 @@ void Tienda::agregarLosProductos(string nombreArchivo){
         // los paso a mis variables previamente definidas con el tipo requerido
         cout << clave << " " << nombre << " " << categoria << " " << precio << endl;
         productosT[i++].setProducto(clave, nombre, categoria, precio, 0); // actualizo el iesimo registro de personas
-=======
-    if (!miArchivo) // si el archivo no se encuentra, marcara error 
-        cout<<"\n<< El archivo no existe >>\n";
-    else{
-        string clave, nombre;
-        int categoria, cantidad, i = 0;
-        float precio;
-        while (!miArchivo.eof() && i < PT){ // cuido no llegar al fin del archivo 
-        // y no rebasar el tamanio de mi arreglo
-            miArchivo >> clave >> nombre >> categoria >> precio >> cantidad; // obtengo los valores del archivo y 
-            // los paso a mis variables previamente definidas con el tipo requerido
-            cout << clave << " " << nombre << " " << categoria << " " << precio << " " << cantidad << endl;
-            productosT[i++].setProducto(clave, nombre, categoria, precio, cantidad); // actualizo el iesimo registro de personas
-        }
->>>>>>> 5f524dea6f1394b1724c55896be23cd5c5b7cf12
     }
     cantidadProductosT += i;
     miArchivo.close();
@@ -145,16 +129,10 @@ void Tienda::agregarLosProductos(string nombreArchivo){
 void Tienda::agregarElProducto(){
     int agregados = 0;
     cout << "Cuantos productos vas a agregar?" << endl;
-<<<<<<< HEAD
     cin >> agregados;
     cantidadProductosT += agregados;
     for (int i = 0; i<cantidadProductosT; i++){
         cout << "\n****** Producto " << i+1 << " ********" << endl;
-=======
-    cin >> cantidadProductosT;
-    for (int i = 0; i<cantidadProductosT; i++){
-        cout << "****** Producto " << i+1 << " ********" << endl;
->>>>>>> 5f524dea6f1394b1724c55896be23cd5c5b7cf12
         string claveTIn, nombrePIn;
         int categoriaPIn, cantidadPIn;
         float precioPIn;
@@ -259,7 +237,7 @@ void Tienda::llenarCarrito(){
     }while(opcionP == true); // Para que el usuario continue comprando o pare
     if (registroCliente){
     imprimirTicketCompra(indiceCliente); // Finalmente imprimo con el metodo de impresion de ticket
-    clientesT[indiceCliente].imprimirCarrito();
+    // clientesT[indiceCliente].imprimirCarrito();
     clientesT[indiceCliente].limpiarCarrito(); // Limpio su carrito para que después haga más compras
     }
 }

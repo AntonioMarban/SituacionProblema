@@ -1,10 +1,10 @@
-P1cat1 Aguacate 1 20 50
-P2cat1 Jitomate 1 10 30
-P1cat2 Lavadora 2 20000 10
-P2cat2 Refrigerador 2 1000 10
-P1cat3 Leche 3 20 100
-P2cat3 Huevo 3 5 200
-P1cat4 Desodorante 4 20 70
-P2cat4 Shampoo 4 10 80
-P1cat5 Tijeras 5 200 10
-P2cat5 Tierra 5 150 10
+P1cat1 Aguacate 1 20
+P2cat1 Jitomate 1 10
+P1cat2 Lavadora 2 20000
+P2cat2 Refrigerador 2 1000
+P1cat3 Leche 3 20
+P2cat3 Huevo 3 5
+P1cat4 Desodorante 4 20
+P2cat4 Shampoo 4 10
+P1cat5 Tijeras 5 200
+P2cat5 Tierra 5 150
