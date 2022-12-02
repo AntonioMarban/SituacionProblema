@@ -26,6 +26,9 @@ int main(){
 
     Tienda tiendita(identificadorTienda, nombreTienda, direccionTienda); // Genero un objeto tipo Tienda.h con los parametros que ingresó el usuario.
 
+    tiendita.imprimirTienda();
+    tiendita.imprimirProductos();
+
     cout << "\n\nBienvenido a la tienda virtual de \"" << tiendita.getNombreT() << "\"" << endl;
 
     int eleccion;
@@ -50,8 +53,16 @@ int main(){
         else if (eleccion == 1 && hayArchivo) { // Agregar productos desde archivo
             cout << "\nIngrese el nombre del archivo que contiene los datos de los productos: " << endl;
             cin >> nombreArchivo;
-            tiendita.agregarLosProductos(nombreArchivo);
-            hayArchivo = false;
+            ifstream miArchivo; // objeto de tipo archivos de entrada
+            miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
+            miArchivo.close();
+            // el archivo cuyo nombre llega como parametro, se abre para lectura
+            if (!miArchivo) // si el archivo no se encuentra, marcara error 
+                cout<<"\n<< El archivo no existe >>\n";
+            else {
+                tiendita.agregarLosProductos(nombreArchivo);
+                hayArchivo = false;
+            }
             
         }
         else if (eleccion == 1 && hayArchivo == false){

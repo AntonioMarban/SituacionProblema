@@ -15,7 +15,7 @@ class Producto{
     public:
         // ======== Metodos constructores
         Producto();
-        Producto(string, string, int, float, int);
+        Producto(string, string, int, float);
         ~Producto();
         // ======== Metodos Getters
         string getClaveT();

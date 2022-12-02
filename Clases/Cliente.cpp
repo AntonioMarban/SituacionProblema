@@ -72,8 +72,10 @@ void Cliente::setTelefonoC(string telefonoC) {
     this ->telefonoC = telefonoC;
 }
 
-void Cliente::setCarritoC(Producto producto, int indice) {
+void Cliente::setCarritoC(Producto producto, int indice, int cantidad) {
     carritoC[indice] = producto;
+    carritoC[indice].setCantidadP(cantidad);
+
     cantidadProductosC++;
 }
 
@@ -98,14 +100,17 @@ void Cliente::imprimirCliente() {
     cout << "Su nombre es: " << nombreC << endl;
     cout << "Su telefono es: " << telefonoC << endl;
     cout << "Su correo electronico es: " << correoElectronicoC << endl;
-    // cout << "Su carrito es: " << carritoC << endl;
     cout << "La cantidad de productos que lleva es: " << cantidadProductosC << endl;
     cout << "El total de su compra es: " << totalC << endl;
+    cout << endl;
+
 }
 
 void Cliente::imprimirCarrito() {
     for (int i = 0; i < cantidadProductosC; i++) {
+        cout << "\nProducto " << i+1 << endl;
         carritoC[i].imprimirProducto();
+        cout << "La cantidad es: " << carritoC[i].getCantidadP() << endl;
     }
 }
 

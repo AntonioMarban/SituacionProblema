@@ -1,1 +1,9 @@
-R32 Leche 3 40.5 30
+001 Leche 3 25
+002 Huevo 3 40
+003 Pan 3 20
+004 PastaDeDientes 4 40
+005 Desodorante 4 60
+006 Fertilizante 5 100
+007 Manzana 1 5
+008 Mango 1 6
+009 Licuadora 2 1000

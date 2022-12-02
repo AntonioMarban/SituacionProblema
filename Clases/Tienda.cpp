@@ -111,28 +111,28 @@ void Tienda::agregarLosProductos(string nombreArchivo){
     ifstream miArchivo; // objeto de tipo archivos de entrada
     miArchivo.open(nombreArchivo.c_str(), ios::out | ios::in);
     // el archivo cuyo nombre llega como parametro, se abre para lectura
-    if (!miArchivo) // si el archivo no se encuentra, marcara error 
-        cout<<"\n<< El archivo no existe >>\n";
-    else{
-        cout<<"\nLleno el arreglo con los datos del archivo de texto\n";
-        string clave, nombre;
-        int categoria, cantidad, i = 0;
-        float precio;
-        while (!miArchivo.eof() && i < PT){ // cuido no llegar al fin del archivo 
-        // y no rebasar el tamanio de mi arreglo
-            miArchivo >> clave >> nombre >> categoria >> precio >> cantidad; // obtengo los valores del archivo y 
-            // los paso a mis variables previamente definidas con el tipo requerido
-            cout << clave << " " << nombre << " " << categoria << " " << precio << " " << cantidad << endl;
-            productosT[i++].setProducto(clave, nombre, categoria, precio, cantidad); // actualizo el iesimo registro de personas
-        }
+    cout<<"\nLleno el arreglo con los datos del archivo de texto\n";
+    string clave, nombre;   
+    int categoria, i = cantidadProductosT;
+    float precio;
+    while (!miArchivo.eof()){ // cuido no llegar al fin del archivo 
+    // y no rebasar el tamanio de mi arreglo
+        miArchivo >> clave >> nombre >> categoria >> precio; // obtengo los valores del archivo y 
+        // los paso a mis variables previamente definidas con el tipo requerido
+        cout << clave << " " << nombre << " " << categoria << " " << precio << endl;
+        productosT[i++].setProducto(clave, nombre, categoria, precio, 0); // actualizo el iesimo registro de personas
     }
+    cantidadProductosT += i;
+    miArchivo.close();
 }
 
 void Tienda::agregarElProducto(){
+    int agregados = 0;
     cout << "Cuantos productos vas a agregar?" << endl;
-    cin >> cantidadProductosT;
-    for (int i; i<cantidadProductosT; cantidadProductosT++){
-        cout << "****** Producto " << i+1 << " ********" << endl;
+    cin >> agregados;
+    cantidadProductosT += agregados;
+    for (int i = 0; i<cantidadProductosT; i++){
+        cout << "\n****** Producto " << i+1 << " ********" << endl;
         string claveTIn, nombrePIn;
         int categoriaPIn, cantidadPIn;
         float precioPIn;
@@ -190,10 +190,10 @@ void Tienda::llenarCarrito(){
             registroCliente = false;
         }else{
             do{
-                cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomésticos, 3) Abarrotes, 4) Higiene personal y 5) Jardinería: " << endl;
+                cout << "\nPor favor, indiqueme cual es el departamento en el que desea buscar su producto \n1) Frutas y verduras, 2) Electrodomesticos, 3) Abarrotes, 4) Higiene personal y 5) Jardineria: " << endl;
                 cin >> categoriaP;
             }while (categoriaP>5 || categoriaP<1); // Me aseguro que escoja categoria valida
-            for (int c; c<PT; c++){
+            for (int c = 0; c<cantidadProductosT; c++){
                 if (categoriaP == productosT[c].getCategoriaP()){ // Cuando coincide con la categoria, lo imprimo
                     productosT[c].imprimirProducto();
                 }
@@ -202,14 +202,16 @@ void Tienda::llenarCarrito(){
             cin >> nombreP;
             cout << "\nTambien indiqueme la cantidad que quiere comprar: ";
             cin >> cantidadCompra;
-            for (int n = 0; n<PT; n++){ // Me aseguro que el nombre introducido este en la lista
+            bool productoEncontrado = false;
+            for (int n = 0; n<cantidadProductosT; n++){ // Me aseguro que el nombre introducido este en la lista
                 if (nombreP == productosT[n].getNombreP()){ // Cuando coincide le añado a su carrito ese producto
-                    clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC()); // Se lo añado en el indice que sea igual a la cantidad de productos
+                    clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC(), cantidadCompra); // Se lo añado en el indice que sea igual a la cantidad de productos
                     clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra);
                     ingresoDiarioT += clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra;
-                    cout << "Cliente con identificador: " << indiceCliente << endl;
+                    cout << "\nCliente con identificador: " << indiceCliente << endl;
                     clientesT[indiceCliente].imprimirCarrito();
-                    cout << clientesT[indiceCliente].getTotalC() << endl;
+                    cout << "Su total hasta ahora es: $" << clientesT[indiceCliente].getTotalC() << endl;   
+                    productoEncontrado = true;
                     break;
                 }
             }
@@ -232,6 +234,7 @@ void Tienda::llenarCarrito(){
     }while(opcionP == true); // Para que el usuario continue comprando o pare
     if (registroCliente){
     imprimirTicketCompra(indiceCliente); // Finalmente imprimo con el metodo de impresion de ticket
+    clientesT[indiceCliente].imprimirCarrito();
     clientesT[indiceCliente].limpiarCarrito(); // Limpio su carrito para que después haga más compras
     }
 }
@@ -246,7 +249,7 @@ void Tienda::cerrarOperaciones(){
 }
 
 void Tienda::imprimirProductos(){
-    for (int i = 0; i<PT; i++){
+    for (int i = 0; i<cantidadProductosT; i++){
         productosT[i].imprimirProducto();
     }
 }
