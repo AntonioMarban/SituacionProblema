@@ -44,11 +44,12 @@ int main(){
         cout << ">";
         cin >> eleccion;
 
-        if (eleccion > 5 || eleccion < 0) {
+        if (eleccion < 0) {
             cout << "\n<< Esa no es una opcion valida. >>" << endl;
         }
         else if (eleccion == 1 && hayArchivo) { // Agregar productos desde archivo
             cout << "\nIngrese el nombre del archivo que contiene los datos de los productos: " << endl;
+            cout << ">";
             cin >> nombreArchivo;
             tiendita.agregarLosProductos(nombreArchivo);
             hayArchivo = false;
@@ -71,4 +72,5 @@ int main(){
             tiendita.cerrarOperaciones();
         }
     }while(eleccion != 6);
+    cout << "\nMuchas gracias, vuelva pronto ;)" << endl;
 }

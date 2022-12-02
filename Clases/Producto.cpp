@@ -75,8 +75,10 @@ void Producto::setProducto(string clave, string nombre, int categoria, float pre
 }
 
 void Producto::imprimirProducto(){
-    cout << "La clave es: " << claveT << endl;
-    cout << "El nombre es:" << nombreP << endl;
-    cout << "La categoria es: " << categoriaP << endl;
-    cout << "El precio es: " << precioP << endl;
+    cout << "\n====================================== " << endl;
+    cout << "\nLa clave de la tienda del producto es: " << claveT << endl;
+    cout << "El nombre del producto es:" << nombreP << endl;
+    cout << "La categoria del producto es: " << categoriaP << endl;
+    cout << "El precio individual es: " << precioP << endl;
+    cout << "\n====================================== " << endl;
 }
