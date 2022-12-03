@@ -1,5 +1,6 @@
 // Diego Sahid García Galván and Antonio Marban Regalado
 // Started on 23/11/2022
+// Finished on 02/12/2022
 
 #pragma once
 #include <iostream>
@@ -27,7 +28,7 @@ class Cliente{
         string getIdentificadorC();
         string getNombreC();
         string getCorreoElectronicoC();
-        string getTelefonoC();
+        string getTelefonoC();      
         Producto getCarritoC();
         int getCantidadProductosC();
         double getTotalC();

@@ -1,5 +1,6 @@
 // Diego Sahid García Galván and Antonio Marban Regalado
 // Started on 28/11/2022
+// Finished on 02/12/2022
 
 #include <iostream>
 #include <string>
