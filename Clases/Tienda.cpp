@@ -136,17 +136,14 @@ void Tienda::agregarElProducto(){ // Este metodo hace que el usuario agregue los
         string claveTIn, nombrePIn;
         int categoriaPIn, cantidadPIn;
         float precioPIn;
-        cout << "\nClave de la tienda del producto: ";
-        cin >> claveTIn;
         cout << "\nNombre del producto: ";
         cin >> nombrePIn;
         cout <<  "\nCategoria del producto: ";
         cin >> categoriaPIn;
         cout << "\nPrecio del producto: ";
         cin >> precioPIn;
-        cout << "\nCantidad a comprar: ";
-        cin >> cantidadPIn;
-        productosT[i].setProducto(claveTIn, nombrePIn, categoriaPIn, precioPIn, cantidadPIn);
+        
+        productosT[i].setProducto(identificadorT, nombrePIn, categoriaPIn, precioPIn, 0);
     }
 }
 
@@ -209,7 +206,7 @@ void Tienda::llenarCarrito(){ // Este metodo dependiendo del identificador de un
                 if (nombreP == productosT[n].getNombreP()){ // Cuando coincide le añado a su carrito ese producto
                     clientesT[indiceCliente].setCarritoC(productosT[n],clientesT[indiceCliente].getCantidadProductosC(), cantidadCompra); // Se lo añado en el indice que sea igual a la cantidad de productos
                     clientesT[indiceCliente].setTotalC(clientesT[indiceCliente].getTotalC()+productosT[n].getPrecioP()*cantidadCompra); // Al total de su carrito le añado el total de lo que compre
-                    ingresoDiarioT += clientesT[indiceCliente].getTotalC(); // El total de su carrito se lo sumo al ingreso de la tienda
+                    ingresoDiarioT += productosT[n].getPrecioP()*cantidadCompra; // El total de su carrito se lo sumo al ingreso de la tienda
                     cout << "\nCliente con identificador: " << indiceCliente << endl;
                     clientesT[indiceCliente].imprimirCarrito(); // Imprimo su carrito para que verifique la compra
                     cout << "Su total hasta ahora es: $" << clientesT[indiceCliente].getTotalC() << endl; // Imprimo el total de su carrito
