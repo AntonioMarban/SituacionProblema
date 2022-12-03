@@ -27,7 +27,7 @@ class Cliente{
         string getIdentificadorC();
         string getNombreC();
         string getCorreoElectronicoC();
-        string getTelefonoC();
+        string getTelefonoC();      
         Producto getCarritoC();
         int getCantidadProductosC();
         double getTotalC();
