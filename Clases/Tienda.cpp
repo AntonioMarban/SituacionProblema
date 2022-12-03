@@ -82,7 +82,7 @@ void Tienda::setCantidadClientesT(int cantCli){ // Este metodo establece la cant
 }
 
 void Tienda::setProductosT(Producto prod){ // Este metodo establece el arreglo de los productos de la tienda en un valor que es introducido
-    productosT[PT] = prod;
+    productosT[cantidadProductosT] = prod;
 }
 
 void Tienda::setClientesT(Cliente cli, int indice){ // Este metodo establece el arreglo de clientes de la tienda en un valor que es introducido
@@ -131,7 +131,7 @@ void Tienda::agregarElProducto(){ // Este metodo hace que el usuario agregue los
     cout << "Cuantos productos vas a agregar?" << endl;
     cin >> agregados;
     cantidadProductosT += agregados;
-    for (int i = 0; i<cantidadProductosT; i++){
+    for (int i = 0; i<agregados; i++){
         cout << "\n****** Producto " << i+1 << " ********" << endl;
         string claveTIn, nombrePIn;
         int categoriaPIn, cantidadPIn;

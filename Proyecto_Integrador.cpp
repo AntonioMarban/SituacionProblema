@@ -12,7 +12,6 @@ int main(){
     // Pruebas de la clase "Producto"
     Producto P1;
     // P1.imprimirProducto();
-    Producto P2("ADFA", "Test", 2, 14.5, 5);
     // P2.imprimirProducto();
     // P1.setCantidadP(24);
     // P1.imprimirProducto();
