@@ -16,12 +16,11 @@ int main(){
     cout << "\nA continuacion ingrese el nombre de la tienda: " << endl;
     cin >> nombreTienda;
     cout << "\nPor ultimo, ingrese la direccion de la tienda: " << endl;
-    cin >> direccionTienda;
+    getline(cin >> ws, direccionTienda); // Lee la linea con espacios (bug que teníamos)
 
     Tienda tiendita(identificadorTienda, nombreTienda, direccionTienda); // Genero un objeto tipo Tienda.h con los parametros que ingresó el usuario.
 
     tiendita.imprimirTienda();
-    tiendita.imprimirProductos();
 
     cout << "\n\nBienvenido a la tienda virtual de \"" << tiendita.getNombreT() << "\"" << endl;
 
