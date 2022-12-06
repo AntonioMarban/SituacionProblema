@@ -107,15 +107,15 @@ void Cliente::imprimirCliente() { // Este metodo imprime todos los atributos de 
 
 }
 
-void Cliente::imprimirCarrito() {
+void Cliente::imprimirCarrito() { // Este metodo imprime todos los productos del carrito del cliente
     for (int i = 0; i < cantidadProductosC; i++) {
         cout << "\nProducto " << i+1 << endl;
         carritoC[i].imprimirProducto();
         cout << "La cantidad es: " << carritoC[i].getCantidadP() << endl;
     }
 }
-
-void Cliente::limpiarCarrito(){
+ 
+void Cliente::limpiarCarrito(){ // Este metodo establece todos los atributos de todos los productos a valores por defecto
     for (int i = 0; i<numeroCarrito; i++){
         carritoC[i].setClaveT("DF");
         carritoC[i].setNombreP("DF");
